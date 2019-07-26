@@ -46,5 +46,16 @@ public class CallTwiMlApplication {
 		return twiMlMessage;
 	}
 	
+	@PostMapping(value="voice-new", produces= {MediaType.APPLICATION_XML_VALUE})
+	public String getTwiMLDataNew(@RequestParam String message) {
+		LOGGER.info("get voice method");
+		String twiMlMessage = 
+				"<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \n" +
+				"<Response>\n" + 
+				"<Say voice=\"alice\">"+message+"</Say>\n" + 
+				"</Response>";
+		return twiMlMessage;
+	}
+	
 
 }
